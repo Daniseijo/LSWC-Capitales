@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>Afganistán,Kabul</string>
+	<string>Albania,Tirana</string>
+	<string>Alemania,Berlin</string>
+	<string>Andorra,Andorra la Vella</string>
+	<string>Angola,Luanda</string>
+	<string>Anguila,The Valley</string>
+	<string>Antigua y Barbuda,Saint John</string>
+	<string>Antillas Holandesas,Willemstad</string>
+	<string>Arabia Saudí,Riad</string>
+	<string>Argelia,Argel</string>
+	<string>Argentina,Buenos Aires</string>
+	<string>Armenia,Erevan</string>
+	<string>Aruba,Oranjestad</string>
+	<string>Australia,Canberra</string>
+	<string>Austria,Vienna</string>
+	<string>Azerbaiján,Baku</string>
+	<string>Bahrein,Manama</string>
+	<string>Bangladesh,Dacca</string>
+	<string>Barbados,Bridgetown</string>
+	<string>Belice,Belmopan</string>
+	<string>Benín,Porto-Novo</string>
+	<string>Bermudas,Hamilton</string>
+	<string>Bielorusia,Minsk</string>
+	<string>Bolivia,Sucre</string>
+	<string>Bosnia y Herzegovina,Sarajevo</string>
+	<string>Botswana,Gaborone</string>
+	<string>Brasil,Brasília</string>
+	<string>Brunei,Bandar Seri Begawan</string>
+	<string>Bulgaria,Sofia</string>
+	<string>Burkina Faso,Ouagadougou</string>
+	<string>Burundi,Bujumbura</string>
+	<string>Bután,Thimphu</string>
+	<string>Bélgica,Bruxelles</string>
+	<string>Camboya,Phnom Penh</string>
+	<string>Camerún,Yaoundé</string>
+	<string>Canadá,Ottawa</string>
+	<string>Cabo Verde,Praia</string>
+	<string>Chile,Santiago</string>
+	<string>China,Pekin</string>
+	<string>Chipre,Nicosia</string>
+	<string>Colombia,Bogotá</string>
+	<string>Comores,Moroni</string>
+	<string>Congo,Brazzaville</string>
+	<string>Corea del Norte,Pyongyang</string>
+	<string>Corea del Sur,Seul</string>
+	<string>Costa Rica,San José</string>
+	<string>Costa de Marfil,Yamoussoukro</string>
+	<string>Croacia,Zagreb</string>
+	<string>Cuba,La Habana</string>
+	<string>Dinamarca,Copenhagen</string>
+	<string>Djibouti,Djibouti</string>
+	<string>Dominica,Roseau</string>
+	<string>Ecuador,Quito</string>
+	<string>Egipto,Cairo</string>
+	<string>El Salvador,San Salvador</string>
+	<string>Emiratos Árabes Unidos,Abu Dhabi</string>
+	<string>Eritrea,Asmara</string>
+	<string>Eslovaquia,Bratislava</string>
+	<string>Eslovenia,Lubliano</string>
+	<string>España,Madrid</string>
+	<string>Estonia,Tallin</string>
+	<string>Etiopía,Addis Abeba</string>
+	<string>Fiji,Suva</string>
+	<string>Filipinas,Manila</string>
+	<string>Finlandia,Helsinki</string>
+	<string>Francia,Paris</string>
+	<string>Gabón,Libreville</string>
+	<string>Gambia,Banjul</string>
+	<string>Georgia,Tbilisi</string>
+	<string>Ghana,Accra</string>
+	<string>Granada,Saint George</string>
+	<string>Grecia,Athens</string>
+	<string>Groenlandia,Nuuk</string>
+	<string>Guadalupe,Basse-Terre</string>
+	<string>Guatemala,Ciudad de Guatemala</string>
+	<string>Guernsey,Saint Peter Port</string>
+	<string>Guinea,Conakry</string>
+	<string>Guinea Ecuatorial,Malabo</string>
+	<string>Guinea Francesa,Cayenne</string>
+	<string>Guinea-Bissau,Bissau</string>
+	<string>Guyana,Georgetown</string>
+	<string>Haití,Port-au-Prince</string>
+	<string>Honduras,Tegucigalpa</string>
+	<string>Hong Kong,Hong Kong (historical)</string>
+	<string>Hungría,Budapest</string>
+	<string>India,New Delhi</string>
+	<string>Indonesia,Jacarta</string>
+	<string>Irak,Bagdad</string>
+	<string>Irlanda,Dublin</string>
+	<string>Irán,Teheran</string>
+	<string>Isla de Jersey,Saint Helier</string>
+	<string>Isla de Man,Douglas</string>
+	<string>Islandia,Reykjavík</string>
+	<string>Islas Caiman,George Town</string>
+	<string>Islas Christmas,The Settlement</string>
+	<string>Islas Cook,Avarua</string>
+	<string>Islas Feroe,Tórshavn</string>
+	<string>Islas Malvinas,Port Stanley</string>
+	<string>Islas Marshall,Majuro</string>
+	<string>Islas Pitcairn,Adamstown</string>
+	<string>Islas Salomón,Honiara</string>
+	<string>Islas Turcas y Caicos,Cockburn Town</string>
+	<string>Islas Vírgenes Británicas,Road Town</string>
+	<string>Italia,Roma</string>
+	<string>Jamaica,Kingston</string>
+	<string>Japón,Tokio</string>
+	<string>Jordania,Amman</string>
+	<string>Kazajstán,Astana</string>
+	<string>Kenia,Nairobi</string>
+	<string>Kiribati,Tarawa</string>
+	<string>Kuwait,Kuwait</string>
+	<string>Kyrgyzstan,Bishkek</string>
+	<string>Laos,Vientiane</string>
+	<string>Las Bahamas,Nassau</string>
+	<string>Lesoto,Maseru</string>
+	<string>Liberia,Monrovia</string>
+	<string>Libia,Tripoli</string>
+	<string>Liechtenstein,Vaduz</string>
+	<string>Lituania,Vilna</string>
+	<string>Luxemburgo,Luxembourg</string>
+	<string>Líbano,Beirut</string>
+	<string>Macao,Macao</string>
+	<string>Macedonia,Skopje</string>
+	<string>Madagascar,Antananarivo</string>
+	<string>Malasia,Kuala Lumpor</string>
+	<string>Malawi,Lilongwe</string>
+	<string>Maldivas,Male</string>
+	<string>Malta,La Valette</string>
+	<string>Malí,Bamako</string>
+	<string>Marruecos,Rabat</string>
+	<string>Martinica,Fort-de-France</string>
+	<string>Mauricio,Port Louis</string>
+	<string>Mauritania,Nouakchott</string>
+	<string>Mayotte,Mamoudzou</string>
+	<string>Micronesia,Palikir</string>
+	<string>Moldavia,Chişinău</string>
+	<string>Mongolia,Ulan Bator</string>
+	<string>Montserrat,Plymouth</string>
+	<string>Mozambique,Maputo</string>
+	<string>Myanmar-Burma,Yangon</string>
+	<string>Méjico,Ciudad de México</string>
+	<string>Mónaco,Monaco</string>
+	<string>Namibia,Windhoek</string>
+	<string>Nepal,Katmandu</string>
+	<string>Nicaragua,Managua</string>
+	<string>Niger,Niamey</string>
+	<string>Nigeria,Abuja</string>
+	<string>Niue,Alofi</string>
+	<string>Noruega,Oslo</string>
+	<string>Nueva Caledonia,Nouméa</string>
+	<string>Nueva Zelanda,Wellington</string>
+	<string>Oman,Mascat</string>
+	<string>Palau,Koror</string>
+	<string>Panamá,Panamá</string>
+	<string>Papúa Nueva Guinéa,Port Moresby</string>
+	<string>Paquistán,Islamabad</string>
+	<string>Paraguay,Asunción</string>
+	<string>Países Bajos,Amsterdam</string>
+	<string>Perú,Lima</string>
+	<string>Polinesia Francesa,Papeete</string>
+	<string>Polonia,Varsovie</string>
+	<string>Portugal,Lisboa</string>
+	<string>Qatar,Doha</string>
+	<string>Reino Unido,London</string>
+	<string>República Centroafricana,Bangui</string>
+	<string>República Checa,Praga</string>
+	<string>República Democrática del Congo,Kinshasa</string>
+	<string>República Dominicana,Santo Domingo</string>
+	<string>República del Chad,Ndjemena</string>
+	<string>Reunion,Saint-Denis</string>
+	<string>Ruanda,Kigali</string>
+	<string>Rumanía,Bucarest</string>
+	<string>Rusia,Moscow</string>
+	<string>Saint Kitts y Nevis,Basseterre</string>
+	<string>Samoa,Apia</string>
+	<string>San Marino,San Marino</string>
+	<string>San Pedro y Miquelón,Saint-Pierre</string>
+	<string>San Vicente y las Granadinas,Kingstown</string>
+	<string>Santa Helena,Jamestown</string>
+	<string>Santa Lucía,Castries</string>
+	<string>Senegal,Dakar</string>
+	<string>Serbia y Montenegro,Belgrado</string>
+	<string>Seychelles,Victoria</string>
+	<string>Sierra Leona,Freetown</string>
+	<string>Singapur,Singapore</string>
+	<string>Siria,Damasco</string>
+	<string>Somalia,Mogadiscio</string>
+	<string>Sri Lanka,Colombo</string>
+	<string>Suacilandia,Mbabane</string>
+	<string>Sudáfrica,Pretoria</string>
+	<string>Sudán,Khartoum</string>
+	<string>Suecia,Stockholm</string>
+	<string>Suiza,Berna</string>
+	<string>Surinam,Paramaribo</string>
+	<string>Svalbard,Longyearbyen</string>
+	<string>Tailandia,Bangkok</string>
+	<string>Taiwán,Taipei</string>
+	<string>Tanzania,Dar es Salaam</string>
+	<string>Tayikistán,Dushambe</string>
+	<string>Togo,Lomé</string>
+	<string>Tonga,Nuku`alofa</string>
+	<string>Trinidad y Tobago,Port-of-Spain</string>
+	<string>Turkmenistán,Ashgabat</string>
+	<string>Turquía,Ankara</string>
+	<string>Tuvalu,Funafuti</string>
+	<string>Túnez,Tunez</string>
+	<string>Ucrania,Kiev</string>
+	<string>Uganda,Kampala</string>
+	<string>Uruguay,Montevideo</string>
+	<string>Uzbekistán,Tashkent</string>
+	<string>Vanuatu,Port-Vila</string>
+	<string>Venezuela,Caracas</string>
+	<string>Vietnam,Hanoi</string>
+	<string>Yemen,Sanaa</string>
+	<string>Zambia,Lusaka</string>
+	<string>Zimbabwe,Harare</string>
+</array>
+</plist>
