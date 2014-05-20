@@ -7,7 +7,10 @@
 //
 
 #import "CapitalesViewController.h"
+#import "CapitalesCell.h"
 #import "MapKit/MapKit.h"
+
+#define OPE_W_URL @"http://api.openweathermap.org/data/2.5/weather"
 
 @interface CapitalesViewController ()
 @property (nonatomic, strong) NSArray *capitales;
@@ -31,6 +34,9 @@
     // Carga lista de capitales
     NSString *path = [[NSBundle mainBundle] pathForResource:@"cities" ofType:@"plist"];
     self.capitales = [NSArray arrayWithContentsOfFile:path];
+    
+    self.title = @"Capitales";
+    self.navigationController.navigationBar.barTintColor = self.tableView.backgroundColor;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -59,29 +65,30 @@
     return self.capitales.count;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CapitalesCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Capital Cell" forIndexPath:indexPath];
+    CapitalesCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Capital Cell" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = self.capitales[indexPath.row];
-    [self cargaMapa:self.capitales[indexPath.row]];
+    cell.nombreLabel.adjustsFontSizeToFitWidth = YES;
+    cell.nubesLabel.adjustsFontSizeToFitWidth = YES;
+    cell.nombreLabel.text = self.capitales[indexPath.row];
+    MKCoordinateRegion reg;
+    [cell.mapaCapital setRegion:reg];
+    [self cargaCelda:cell atIndex:indexPath];
     return cell;
 }
 
-#define OPE_W_URL @"http://api.openweathermap.org/data/2.5/weather"
-
-- (void)cargaMapa:(NSString *)capital {
-    self.title = @"Cargando...";
+- (void)cargaCelda:(CapitalesCell *)cell atIndex:(NSIndexPath *)indexPath {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    
     dispatch_queue_t queue = dispatch_queue_create("download queue", NULL);
     dispatch_async(queue, ^{
+        NSDictionary *dic;
+        NSString *capital = self.capitales[indexPath.row];
         NSString *s = [NSString stringWithFormat:@"%@?q=%@&units=metric&lang=sp", OPE_W_URL, capital];
         NSString *escapedURL = [s stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         NSURL *url = [NSURL URLWithString:escapedURL];
         NSURLRequest *req = [NSURLRequest requestWithURL:url];
-        
         NSHTTPURLResponse *responseHTTP = nil;
         NSError *error =nil;
         NSData *data = [NSURLConnection sendSynchronousRequest:req
@@ -94,85 +101,59 @@
                 self.title = @"Error";
             } else {
                 //parsear
-                [self parseWeather:data];
+                NSError *err;
+                dic = [NSJSONSerialization JSONObjectWithData:data
+                                                      options:NSJSONReadingMutableContainers
+                                                        error:&err];
+                if (!dic) {
+                    NSLog(@"Error parsing JSON: %@", [err localizedDescription]);
+                    return;
+                }
             }
         } else {
             self.title = @"Error";
             NSLog(@"Error: %@", [error localizedFailureReason]);
         }
         dispatch_async(dispatch_get_main_queue(), ^{
+            [self parseDictionary:dic inCell:cell];
             [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         });
     });
 }
 
-- (void)parseWeather:(NSData *)data {
-    NSDictionary *dic;
-    NSError *err;
-    dic = [NSJSONSerialization JSONObjectWithData:data
-                                          options:NSJSONReadingMutableContainers
-                                            error:&err];
-    if (!dic) {
-        NSLog(@"Error parsing JSON: %@", [err localizedDescription]);
-        return;
-    }
+- (void)parseDictionary:(NSDictionary *)dic inCell:(CapitalesCell *)cell {
+    NSString *nubes = dic[@"weather"][0][@"description"];
+    cell.nubesLabel.text = [nubes capitalizedString];
     
-    // Log main keys
-    for (NSString *key in [dic allKeys]) {
-        if ([key isEqualToString:@"name"])
-        NSLog(@"KEY = %@ -> %@", key, dic[key]);
-    }
+    NSNumber *nTemp = dic[@"main"][@"temp"];
+    cell.tempLabel.text = [NSString stringWithFormat:@"%d ºC", nTemp.intValue];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"HH:mm"];
+    NSNumber *nDate = dic[@"sys"][@"sunrise"];
+    NSDate *date = [[NSDate alloc] initWithTimeIntervalSince1970:nDate.doubleValue];
+    cell.salSolLabel.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:date]];
+    
+    nDate = dic[@"sys"][@"sunset"];
+    date = [[NSDate alloc] initWithTimeIntervalSince1970:nDate.doubleValue];
+    cell.ponSolLabel.text = [NSString stringWithFormat:@"%@", [dateFormatter stringFromDate:date]];
+    
+    NSNumber *nLatitude = dic[@"coord"][@"lat"];
+    NSNumber *nLongitude = dic[@"coord"][@"lon"];
+    MKCoordinateRegion reg;
+    reg.center.latitude = nLatitude.floatValue;
+    reg.center.longitude = nLongitude.floatValue;
+    reg.span.latitudeDelta = 0.5;
+    reg.span.longitudeDelta = 0.5;
+    [cell.mapaCapital setRegion:reg animated: NO];
+    cell.mapaCapital.mapType = MKMapTypeHybrid;
+    cell.mapaCapital.userInteractionEnabled = NO;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+#pragma mark - Table view delegate
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    return nil;
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-
- */
 
 @end
